@@ -14,7 +14,7 @@ pipeline {
                 '''
                 sshagent(['GITHUB']) {
                     sh('git push git@github.com:alvarodcr/hello-2048.git --tags')
-		    }
+		    
 	        }               
             }      
         }  
