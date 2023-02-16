@@ -30,8 +30,8 @@ pipeline {
         
         stage('VALiDATING TERRAFORM --> MAIN.CFG') {
             steps {
-                sh 'cd /home/sinensia/hello-terraform && terraform validate'
-            
+		sh 'terraform init'
+		sh 'terraform validate'
             }
         }
          
@@ -47,6 +47,7 @@ pipeline {
                 }
             }
         }
+	    
     	stage('ANSIBLE --> SETTING AWS EC2 INSTANCE') {
             steps {
             	withAWS(credentials: '2934977b-3b53-4065-8b4a-312c2259a9f3') {
